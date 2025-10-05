@@ -880,9 +880,9 @@ Developed by the GovAI Team for government transparency and citizen empowerment.
 
 For support, questions, or feedback:
 
-- **Email:** support@govai.platform
-- **Issues:** [GitHub Issues](https://github.com/your-repo/issues)
-- **Documentation:** [Full Docs](https://docs.govai.platform)
+- **Email:** syedalihasnat929@gmail.com
+- **Issues:** [GitHub Issues](https://github.com/Alihasnat930/Uraan-governance-project/)
+
 
 ---
 
