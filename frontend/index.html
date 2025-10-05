@@ -1,0 +1,730 @@
+<!DOCTYPE html><!doctype html>
+
+<html lang="en"><html lang="en">
+
+<head>  <head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <title>GovAI Transparency Platform</title>    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>    <title>GovAI Transparency Platform</title>
+
+        * {    <meta name="description" content="Government transparency platform with fraud detection, citizen services, and budget analytics" />
+
+            margin: 0;    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+            padding: 0;    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+            box-sizing: border-box;    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        }  </head>
+
+          <body>
+
+        body {    <div id="root"></div>
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    <script type="module" src="/src/main.tsx"></script>
+
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  </body>
+
+            min-height: 100vh;</html>
+            color: #333;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .result-card {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .result-success {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .result-warning {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+        }
+        
+        .result-danger {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            color: white;
+        }
+        
+        .result-info {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background: #4CAF50;
+        }
+        
+        .status-offline {
+            background: #f44336;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+        
+        .chat-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+        }
+        
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .chat-user {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .chat-bot {
+            background: #e1e5e9;
+            color: #333;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .tab.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏛️ GovAI Transparency Platform</h1>
+        <p>AI-Powered Government Transparency & Fraud Detection System</p>
+    </div>
+
+    <div class="container">
+        <!-- System Status -->
+        <div class="card">
+            <h2><span class="icon">🔧</span>System Status</h2>
+            <div id="system-status">
+                <div class="loading">Checking system status</div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fraud')">🔍 Fraud Detection</button>
+            <button class="tab" onclick="showTab('chat')">🤖 Chatbot</button>
+            <button class="tab" onclick="showTab('analytics')">📊 Analytics</button>
+            <button class="tab" onclick="showTab('contracts')">📋 Contracts</button>
+        </div>
+
+        <!-- Fraud Detection Tab -->
+        <div id="fraud-tab" class="tab-content active">
+            <div class="card">
+                <h2><span class="icon">🔍</span>Contract Fraud Analysis</h2>
+                <form id="fraud-form">
+                    <div class="form-group">
+                        <label for="contract-id">Contract ID</label>
+                        <input type="text" id="contract-id" placeholder="e.g., CONTRACT-2024-001" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Contract Amount (USD)</label>
+                        <input type="number" id="amount" placeholder="e.g., 5000000" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sector">Major Sector</label>
+                        <select id="sector" required>
+                            <option value="">Select Sector</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Health">Health</option>
+                            <option value="Education">Education</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Energy">Energy</option>
+                            <option value="Water">Water</option>
+                            <option value="Urban Development">Urban Development</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <select id="region" required>
+                            <option value="">Select Region</option>
+                            <option value="South Asia">South Asia</option>
+                            <option value="East Asia">East Asia</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Middle East and North Africa">Middle East and North Africa</option>
+                            <option value="Sub-Saharan Africa">Sub-Saharan Africa</option>
+                            <option value="Latin America">Latin America</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="supplier-country">Supplier Country</label>
+                        <input type="text" id="supplier-country" placeholder="e.g., Pakistan" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Analyze Contract</button>
+                </form>
+                
+                <div id="fraud-result"></div>
+            </div>
+        </div>
+
+        <!-- Chatbot Tab -->
+        <div id="chat-tab" class="tab-content">
+            <div class="card">
+                <h2><span class="icon">🤖</span>Government Services Chatbot</h2>
+                
+                <div class="chat-container" id="chat-container">
+                    <div class="chat-message chat-bot">
+                        Hello! I'm your government services assistant. I can help you with bills, payments, documents, and more. How can I assist you today?
+                    </div>
+                </div>
+                
+                <form id="chat-form">
+                    <div class="form-group">
+                        <label for="chat-message">Your Message</label>
+                        <textarea id="chat-message" rows="3" placeholder="Type your question here..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <select id="language">
+                            <option value="en">English</option>
+                            <option value="ur">اردو (Urdu)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics-tab" class="tab-content">
+            <div class="card">
+                <h2><span class="icon">📊</span>Government Analytics Dashboard</h2>
+                <button class="btn" onclick="loadAnalytics()">Load Analytics Data</button>
+                <div id="analytics-result"></div>
+            </div>
+        </div>
+
+        <!-- Contracts Tab -->
+        <div id="contracts-tab" class="tab-content">
+            <div class="card">
+                <h2><span class="icon">📋</span>Contract Database</h2>
+                <button class="btn" onclick="loadContracts()">Load Recent Contracts</button>
+                <div id="contracts-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api';
+
+        // Utility functions
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        async function apiRequest(endpoint, options = {}) {
+            try {
+                const response = await fetch(`${API_BASE}${endpoint}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers,
+                    },
+                    ...options,
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('API Error:', error);
+                throw error;
+            }
+        }
+
+        // System status check
+        async function checkSystemStatus() {
+            try {
+                const health = await apiRequest('/health');
+                const statusHtml = `
+                    <div class="result-card result-success">
+                        <h3><span class="status-indicator status-online"></span>System Online</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">${(health.fraud_detection_accuracy * 100).toFixed(0)}%</div>
+                                <div class="stat-label">Fraud Detection</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${(health.chatbot_accuracy * 100).toFixed(0)}%</div>
+                                <div class="stat-label">Chatbot</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${(health.analytics_accuracy * 100).toFixed(0)}%</div>
+                                <div class="stat-label">Analytics</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.9em;">
+                            Last updated: ${new Date(health.timestamp).toLocaleString()}
+                        </p>
+                    </div>
+                `;
+                document.getElementById('system-status').innerHTML = statusHtml;
+            } catch (error) {
+                document.getElementById('system-status').innerHTML = `
+                    <div class="result-card result-danger">
+                        <h3><span class="status-indicator status-offline"></span>System Offline</h3>
+                        <p>Cannot connect to backend server. Please ensure the API is running on localhost:8000</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Fraud detection
+        document.getElementById('fraud-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                contract_id: document.getElementById('contract-id').value,
+                amount: parseFloat(document.getElementById('amount').value),
+                sector: document.getElementById('sector').value,
+                region: document.getElementById('region').value,
+                supplier_country: document.getElementById('supplier-country').value,
+                procurement_type: 'Competitive'
+            };
+
+            const resultDiv = document.getElementById('fraud-result');
+            resultDiv.innerHTML = '<div class="loading">Analyzing contract</div>';
+
+            try {
+                const result = await apiRequest('/analyze-contract', {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                });
+
+                const riskClass = {
+                    'LOW': 'result-success',
+                    'MEDIUM': 'result-warning', 
+                    'HIGH': 'result-warning',
+                    'CRITICAL': 'result-danger'
+                }[result.risk_level];
+
+                resultDiv.innerHTML = `
+                    <div class="result-card ${riskClass}">
+                        <h3>Analysis Results</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">${result.risk_level}</div>
+                                <div class="stat-label">Risk Level</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${(result.fraud_probability * 100).toFixed(1)}%</div>
+                                <div class="stat-label">Fraud Probability</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${(result.confidence * 100).toFixed(1)}%</div>
+                                <div class="stat-label">Confidence</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <strong>Recommendations:</strong>
+                            <ul style="margin-top: 10px;">
+                                ${result.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result-card result-danger">
+                        <h3>Analysis Failed</h3>
+                        <p>Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        });
+
+        // Chatbot
+        document.getElementById('chat-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const message = document.getElementById('chat-message').value;
+            const language = document.getElementById('language').value;
+            const chatContainer = document.getElementById('chat-container');
+
+            // Add user message
+            chatContainer.innerHTML += `
+                <div class="chat-message chat-user">${message}</div>
+            `;
+
+            // Clear input
+            document.getElementById('chat-message').value = '';
+
+            // Add loading indicator
+            chatContainer.innerHTML += `
+                <div class="chat-message chat-bot loading">Thinking</div>
+            `;
+
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            try {
+                const result = await apiRequest('/chat', {
+                    method: 'POST',
+                    body: JSON.stringify({ message, language })
+                });
+
+                // Remove loading indicator
+                const loadingMsg = chatContainer.querySelector('.loading');
+                if (loadingMsg) loadingMsg.remove();
+
+                // Add bot response
+                chatContainer.innerHTML += `
+                    <div class="chat-message chat-bot">
+                        ${result.response}
+                        <div style="font-size: 0.8em; opacity: 0.7; margin-top: 5px;">
+                            Intent: ${result.intent} | Confidence: ${(result.confidence * 100).toFixed(1)}%
+                        </div>
+                    </div>
+                `;
+
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            } catch (error) {
+                // Remove loading indicator
+                const loadingMsg = chatContainer.querySelector('.loading');
+                if (loadingMsg) loadingMsg.remove();
+
+                chatContainer.innerHTML += `
+                    <div class="chat-message chat-bot">
+                        Sorry, I'm having trouble processing your request right now. Please try again later.
+                    </div>
+                `;
+            }
+        });
+
+        // Analytics
+        async function loadAnalytics() {
+            const resultDiv = document.getElementById('analytics-result');
+            resultDiv.innerHTML = '<div class="loading">Loading analytics data</div>';
+
+            try {
+                const result = await apiRequest('/analytics/dashboard');
+
+                resultDiv.innerHTML = `
+                    <div class="result-card result-info">
+                        <h3>Global Government Expenditure Analytics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">${(result.summary.total_global_expenditure / 1000000).toFixed(1)}T</div>
+                                <div class="stat-label">Total Expenditure (USD)</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${result.summary.countries_analyzed}</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${result.summary.sectors_covered}</div>
+                                <div class="stat-label">Sectors</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${result.summary.average_gdp_impact.toFixed(1)}%</div>
+                                <div class="stat-label">Avg GDP Impact</div>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">Top Spending Countries</h4>
+                        <div style="margin-top: 10px;">
+                            ${result.top_spending_countries.map(country => `
+                                <div style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                                    <span>${country.country}</span>
+                                    <span>$${(country.expenditure / 1000).toFixed(1)}B</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result-card result-danger">
+                        <h3>Analytics Load Failed</h3>
+                        <p>Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Contracts
+        async function loadContracts() {
+            const resultDiv = document.getElementById('contracts-result');
+            resultDiv.innerHTML = '<div class="loading">Loading contract data</div>';
+
+            try {
+                const result = await apiRequest('/contracts?limit=5');
+
+                resultDiv.innerHTML = `
+                    <div class="result-card result-info">
+                        <h3>Recent Government Contracts</h3>
+                        <p>Showing ${result.showing} of ${result.total_found} contracts</p>
+                        
+                        <div style="margin-top: 20px;">
+                            ${result.contracts.map(contract => `
+                                <div style="border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 15px; margin: 10px 0;">
+                                    <h4>${contract.contract_id}</h4>
+                                    <p><strong>Description:</strong> ${contract.description}</p>
+                                    <p><strong>Amount:</strong> $${contract.amount.toLocaleString()}</p>
+                                    <p><strong>Supplier:</strong> ${contract.supplier}</p>
+                                    <p><strong>Sector:</strong> ${contract.sector}</p>
+                                    <p><strong>Country:</strong> ${contract.country}</p>
+                                    <p><strong>Date:</strong> ${contract.date}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result-card result-danger">
+                        <h3>Contracts Load Failed</h3>
+                        <p>Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkSystemStatus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+[
+  {
+    "test": "Backend Health Check",
+    "status": "PASS",
+    "details": "Status: healthy",
+    "timestamp": "2025-10-03T13:27:41.293644"
+  },
+  {
+    "test": "API Documentation Access",
+    "status": "PASS",
+    "details": "Documentation accessible",
+    "timestamp": "2025-10-03T13:27:41.307845"
+  },
+  {
+    "test": "Frontend Accessibility",
+    "status": "PASS",
+    "details": "Streamlit interface accessible",
+    "timestamp": "2025-10-03T13:27:41.478696"
+  },
+  {
+    "test": "High-Risk Contract Detection",
+    "status": "PASS",
+    "details": "Risk: MEDIUM, Score: 0.410",
+    "timestamp": "2025-10-03T13:27:41.567231"
+  },
+  {
+    "test": "Medium-Risk Contract Detection",
+    "status": "PASS",
+    "details": "Risk: LOW, Score: 0.060",
+    "timestamp": "2025-10-03T13:27:41.641794"
+  },
+  {
+    "test": "Low-Risk Contract Detection",
+    "status": "PASS",
+    "details": "Risk: LOW, Score: 0.095",
+    "timestamp": "2025-10-03T13:27:41.706088"
+  },
+  {
+    "test": "Suspicious Pattern Detection",
+    "status": "PASS",
+    "details": "Risk: MEDIUM, Score: 0.420",
+    "timestamp": "2025-10-03T13:27:41.773912"
+  },
+  {
+    "test": "Chatbot English Bill Inquiry",
+    "status": "PASS",
+    "details": "Intent: bill_inquiry, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:41.787749"
+  },
+  {
+    "test": "Chatbot English Complaint Filing",
+    "status": "PASS",
+    "details": "Intent: complaint, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:42.301467"
+  },
+  {
+    "test": "Chatbot English Emergency Request",
+    "status": "PASS",
+    "details": "Intent: emergency, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:42.814562"
+  },
+  {
+    "test": "Chatbot English Document Request",
+    "status": "PASS",
+    "details": "Intent: document_request, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:43.327509"
+  },
+  {
+    "test": "Chatbot English Office Information",
+    "status": "PASS",
+    "details": "Intent: information, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:43.953582"
+  },
+  {
+    "test": "Chatbot English Fraud Report",
+    "status": "PASS",
+    "details": "Intent: fraud_report, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:44.480109"
+  },
+  {
+    "test": "Chatbot Urdu Bill Inquiry",
+    "status": "PASS",
+    "details": "Intent: bill_inquiry, Lang: urdu, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:44.997627"
+  },
+  {
+    "test": "Chatbot Urdu Complaint Filing",
+    "status": "PASS",
+    "details": "Intent: complaint, Lang: urdu, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:45.512110"
+  },
+  {
+    "test": "Chatbot Urdu Emergency Request",
+    "status": "PASS",
+    "details": "Intent: emergency, Lang: urdu, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:46.013799"
+  },
+  {
+    "test": "Chatbot Urdu Document Request",
+    "status": "PASS",
+    "details": "Intent: general, Lang: urdu, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:46.557103"
+  },
+  {
+    "test": "Chatbot Auto-detect Language",
+    "status": "FAIL",
+    "details": "HTTP 500",
+    "timestamp": "2025-10-03T13:27:47.075842"
+  },
+  {
+    "test": "Chatbot General Services Inquiry",
+    "status": "PASS",
+    "details": "Intent: document_request, Lang: english, Confidence: 0.00",
+    "timestamp": "2025-10-03T13:27:47.627803"
+  },
+  {
+    "test": "Bill Inquiry 42101-1234567-1",
+    "status": "FAIL",
+    "details": "HTTP 405",
+    "timestamp": "2025-10-03T13:27:48.148369"
+  },
+  {
+    "test": "Bill Inquiry 42201-2345678-2",
+    "status": "FAIL",
+    "details": "HTTP 405",
+    "timestamp": "2025-10-03T13:27:48.175344"
+  },
+  {
+    "test": "Bill Inquiry 42301-3456789-3",
+    "status": "FAIL",
+    "details": "HTTP 405",
+    "timestamp": "2025-10-03T13:27:48.189917"
+  },
+  {
+    "test": "Bill Inquiry 99999-9999999-9",
+    "status": "FAIL",
+    "details": "HTTP 405",
+    "timestamp": "2025-10-03T13:27:48.194001"
+  },
+  {
+    "test": "Invalid Contract Handling",
+    "status": "FAIL",
+    "details": "Unexpected HTTP 500",
+    "timestamp": "2025-10-03T13:27:48.205263"
+  },
+  {
+    "test": "Empty Message Handling",
+    "status": "PASS",
+    "details": "Handled gracefully",
+    "timestamp": "2025-10-03T13:27:48.227404"
+  },
+  {
+    "test": "Long Message Handling",
+    "status": "PASS",
+    "details": "Processed successfully",
+    "timestamp": "2025-10-03T13:27:48.240536"
+  },
+  {
+    "test": "Fraud Detection Performance",
+    "status": "PASS",
+    "details": "Response time: 0.04s",
+    "timestamp": "2025-10-03T13:27:48.285259"
+  },
+  {
+    "test": "Chatbot Performance",
+    "status": "PASS",
+    "details": "Response time: 0.02s",
+    "timestamp": "2025-10-03T13:27:48.305428"
+  }
+]

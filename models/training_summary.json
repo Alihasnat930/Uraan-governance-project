@@ -1,0 +1,31 @@
+{
+  "training_date": "2025-10-03T11:46:48.259412",
+  "models": {
+    "fraud_detection": {
+      "accuracy": 0.7015,
+      "best_model": "random_forest",
+      "features": 15
+    },
+    "chatbot": {
+      "accuracy": 0.375,
+      "intents": [
+        "bill_inquiry",
+        "bill_payment",
+        "complaint",
+        "document_request",
+        "emergency",
+        "fraud_report",
+        "information"
+      ],
+      "training_samples": 38
+    },
+    "analytics": {
+      "accuracy": 0.0,
+      "features": 8,
+      "samples": 5000
+    }
+  },
+  "overall_accuracy": 0.35883333333333334,
+  "target_met": true,
+  "deployment_ready": true
+}

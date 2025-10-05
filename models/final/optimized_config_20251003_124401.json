@@ -1,0 +1,39 @@
+{
+  "model_name": "Optimized Random Forest",
+  "model_file": "models/final/optimized_fraud_detector_20251003_124401.pkl",
+  "scaler_file": "models/final/optimized_scaler_20251003_124401.pkl",
+  "features": [
+    "contract_value",
+    "value_log",
+    "value_sqrt",
+    "duration_months",
+    "bid_count",
+    "value_per_month",
+    "value_zscore",
+    "value_duration_ratio",
+    "value_bid_ratio",
+    "supplier_concentration",
+    "extreme_high_value",
+    "extreme_short_duration",
+    "extreme_low_bids",
+    "high_value_short_duration",
+    "frequent_supplier_high_value",
+    "supplier_frequency_rank",
+    "dept_frequency_rank",
+    "supplier_risk_score",
+    "weekend_award",
+    "end_of_year",
+    "award_year_encoded",
+    "manual_anomaly_score",
+    "value_percentile"
+  ],
+  "performance": {
+    "f1_score": 0.7581699346405228,
+    "precision": 0.7435897435897436,
+    "recall": 0.7733333333333333,
+    "accuracy": 0.9753333333333334
+  },
+  "method": "Random Forest with threshold 0.45",
+  "timestamp": "20251003_124401",
+  "improvement_over_original": "+62.7%"
+}
