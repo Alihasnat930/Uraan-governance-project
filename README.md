@@ -17,7 +17,6 @@
 - [Architecture](#-architecture)
 - [AI Chatbot](#-ai-chatbot-features)
 - [Fraud Detection](#-fraud-detection)
-- [Screenshots](#-screenshots)
 - [Technology Stack](#-technology-stack)
 - [API Documentation](#-api-documentation)
 - [Deployment](#-deployment)
